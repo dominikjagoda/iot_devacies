@@ -2,31 +2,14 @@ import random
 import datetime
 import decimal
 from typing import Dict, Any
+from dataclasses import dataclass
 
-
+@dataclass(frozen=True)
 class WeatherSensor:
-
-    def __init__(self, device_id: int, name: str, latitude: float, longitude: float):
-        
-        """
-        Initializes a WeatherSensor instance.
-
-        Args:
-            id (int): The unique identifier for the weather sensor.
-            name (str): The name of the weather sensor.
-            latitude (float): The latitude coordinate of the sensor's location.
-            longitude (float): The longitude coordinate of the sensor's location.
-        """
-
-        self.device_id = device_id
-        self.name = name
-        self.latitude = latitude
-        self.longitude = longitude
-
-    @property
-    def id(self):
-         """Sets id parameter as read only"""
-         return self._id
+    device_id: int
+    name: str
+    latitude: float
+    longitude: float
     
     def generate_data(self) -> Dict[str, Any]:
         """
@@ -54,8 +37,6 @@ class WeatherSensor:
         }
 
         return data
-
-
 
 
 
