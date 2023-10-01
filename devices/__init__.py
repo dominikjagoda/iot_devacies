@@ -1,2 +1,1 @@
 from .weather_sensor import WeatherSensor
-from .mongo_connector import insert_json_to_mongodb
