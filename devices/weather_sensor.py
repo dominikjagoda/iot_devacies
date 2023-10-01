@@ -6,7 +6,7 @@ from typing import Dict, Any
 
 class WeatherSensor:
 
-    def __init__(self, id: int, name: str, latitude: float, longitude: float):
+    def __init__(self, device_id: int, name: str, latitude: float, longitude: float):
         
         """
         Initializes a WeatherSensor instance.
@@ -18,15 +18,15 @@ class WeatherSensor:
             longitude (float): The longitude coordinate of the sensor's location.
         """
 
-        self._id = id
+        self.device_id = device_id
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
 
     @property
     def id(self):
-        """Sets id parameter as read only"""
-        return self._id
+         """Sets id parameter as read only"""
+         return self._id
     
     def generate_data(self) -> Dict[str, Any]:
         """
@@ -38,7 +38,7 @@ class WeatherSensor:
                   (temperature, humidity, pressure, light intensity).
         """
         data = {
-            "device_id": self._id,
+            "device_id": self.device_id,
             "name": self.name,
             "timestamp": datetime.datetime.now(),
             "location": {
